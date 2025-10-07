@@ -11,4 +11,7 @@ public class FakeRestAsserts {
     public void assertGetAllActivities(GetAllActivitiesResponse[] getAllActivitiesResponse) {
         Assert.assertEquals(getAllActivitiesResponse.length, 0, "");
     }
+
+//    public static boolean doesUserExist(String id) {
+//    }
 }
