@@ -1,8 +1,6 @@
 package data.provider;
 
-import com.github.javafaker.Faker;
-
-public class FakeRestProvider {
+public class ActivityProvider {
 
     //da ne pravimo isti request svuda
 //    public static ActivityRequest prepareActivityRequest() {

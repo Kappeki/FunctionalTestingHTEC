@@ -7,10 +7,10 @@ import data.models.GetActivityResponse;
 import jdk.jfr.Description;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import test.asserts.FakeRestAsserts;
+import test.asserts.ActivityAssert;
 import test.common.TestBase;
 
-public class FakeRestTests extends TestBase {
+public class ActivityTest extends TestBase {
 
     //AcitvityRequest activityRequest;
     String idOfCreatedActivity;
@@ -26,8 +26,8 @@ public class FakeRestTests extends TestBase {
     public void getAllActivitiesTest() {
         GetActivityResponse[] getAllActivitiesResponse = FakeRestAPI.getAllActivities();
 
-        FakeRestAsserts fakeRestAsserts = new FakeRestAsserts();
-        fakeRestAsserts.assertGetAllActivities(getAllActivitiesResponse);
+        ActivityAssert activityAssert = new ActivityAssert();
+        activityAssert.assertGetAllActivities(getAllActivitiesResponse);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class FakeRestTests extends TestBase {
 
         CreateActivityResponse createActivityResponse = FakeRestAPI.createNewActivity(createActivityRequest);
 
-        FakeRestAsserts fakeRestAsserts = new FakeRestAsserts();
-        fakeRestAsserts.assertCreateNewActivity(createActivityResponse);
+        ActivityAssert activityAssert = new ActivityAssert();
+        activityAssert.assertCreateNewActivity(createActivityResponse);
     }
 }

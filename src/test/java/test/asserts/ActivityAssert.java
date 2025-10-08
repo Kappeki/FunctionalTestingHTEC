@@ -5,7 +5,7 @@ import data.models.GetActivityResponse;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
-public class FakeRestAsserts {
+public class ActivityAssert {
 
     public SoftAssert softAssert = new SoftAssert();
 
