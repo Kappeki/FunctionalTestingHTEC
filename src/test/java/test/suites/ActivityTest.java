@@ -13,7 +13,7 @@ import test.common.TestBase;
 public class ActivityTest extends TestBase {
 
     //AcitvityRequest activityRequest;
-    String idOfCreatedActivity;
+//    String idOfCreatedActivity;
 
     @BeforeMethod
     public void prepareTestData() {
@@ -22,7 +22,7 @@ public class ActivityTest extends TestBase {
     }
 
     @Test
-    @Description("Verify that a list of activities is returned")
+    @Description("Verify that the list of all activities is returned")
     public void getAllActivitiesTest() {
         GetActivityResponse[] getAllActivitiesResponse = FakeRestAPI.getAllActivities();
 
@@ -39,5 +39,14 @@ public class ActivityTest extends TestBase {
 
         ActivityAssert activityAssert = new ActivityAssert();
         activityAssert.assertCreateNewActivity(createActivityResponse);
+    }
+
+    @Test
+    @Description("Verify that the correct activity is returned")
+    public void getActivity() {
+        GetActivityResponse getActivityResponse = FakeRestAPI.getActivity(13);
+
+        ActivityAssert activityAssert = new ActivityAssert();
+        activityAssert.assertGetActivity(getActivityResponse);
     }
 }
