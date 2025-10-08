@@ -1,6 +1,5 @@
 package common;
 
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -12,5 +11,7 @@ public class RestAssuredFunctions {
         return given().contentType(ContentType.JSON).get(url);
     }
 
-//    public static Response post(String url, String RequestBody)
+    public static Response postActivity(String url, Object requestBody) {
+        return given().contentType(ContentType.JSON).body(requestBody).post(url).then().extract().response();
+    }
 }

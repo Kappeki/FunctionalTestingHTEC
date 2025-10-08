@@ -2,11 +2,18 @@ package calls;
 
 import common.GsonFunctions;
 import common.RestAssuredFunctions;
-import data.models.GetAllActivitiesResponse;
+import constants.ApiEndpoints;
+import data.models.CreateActivityRequest;
+import data.models.CreateActivityResponse;
+import data.models.GetActivityResponse;
 
 public class FakeRestAPI {
 
-    public static GetAllActivitiesResponse[] getAllActivitiesResponse(String url) {
-        return GsonFunctions.parseSuccessResponseToModel(RestAssuredFunctions.getAllActivities(url), GetAllActivitiesResponse[].class);
+    public static GetActivityResponse[] getAllActivities() {
+        return GsonFunctions.parseSuccessResponseToModel(RestAssuredFunctions.getAllActivities(ApiEndpoints.ACTIVITIES), GetActivityResponse[].class);
+    }
+
+    public static CreateActivityResponse createNewActivity(CreateActivityRequest createActivityRequest) {
+        return GsonFunctions.parseSuccessResponseToModel(RestAssuredFunctions.postActivity(ApiEndpoints.ACTIVITIES, createActivityRequest), CreateActivityResponse.class);
     }
 }
