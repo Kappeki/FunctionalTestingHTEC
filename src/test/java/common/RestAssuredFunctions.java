@@ -14,4 +14,24 @@ public class RestAssuredFunctions {
     public static Response postActivity(String url, Object requestBody) {
         return given().contentType(ContentType.JSON).body(requestBody).post(url).then().extract().response();
     }
+
+    public static Response postCoverPhoto(String url, Object requestBody) {
+        return given().contentType(ContentType.JSON).body(requestBody).post(url).then().extract().response();
+    }
+
+    public static Response getCoverPhoto(String url) {
+        return given().contentType(ContentType.JSON).get(url);
+    }
+
+    public static Response getCoverPhotosByBookId(String url) {
+        return given().contentType(ContentType.JSON).get(url);
+    }
+
+    public static Response deleteUserWithNonExistingId(String url) {
+        return given().contentType(ContentType.JSON).delete(url);
+    }
+
+    public static Response deleteUserWithInvalidIdFormat(String url) {
+        return given().contentType(ContentType.JSON).delete(url);
+    }
 }
